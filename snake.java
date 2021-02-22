@@ -4,10 +4,11 @@ public class linecomparison {
 		System.out.println("Welcome to snake ladder problem");
 
 		//Variables
-		int first_player , position=0;
+		int first_player , position=0 , dieroll=0;
 		while(position >=0 && position <100)
 		{
 			first_player=(int)Math.floor((Math.random() * 6) + 1);
+			dieroll++;
 			position+=first_player;
 			int die_roll=(int)Math.floor(Math.random() * 10 ) % 3;
 			switch (die_roll){
@@ -26,11 +27,9 @@ public class linecomparison {
 			{
 				position-=position;
 			}
-			else
-			{
-				System.out.println(position);
-			}
+			System.out.println("For "+dieroll+" roll value is: "+position);
 		}
+		System.out.println("Total number of times the dice is rolled for a win is: "+dieroll);
 		System.out.println("Winning position is reached by the user: "+position);
 		System.out.println("The player is won: "+position);
 
