@@ -1,38 +1,56 @@
-public class linecomparison {
+public class snake {
 	public static final int no_play=0, ladder=1, snake=2;
-	public static void main(String[] args){
-		System.out.println("Welcome to snake ladder problem");
 
-		//Variables
-		int first_player , position=0 , dieroll=0;
+	public int dice_roll()
+	{
+		int dice ,position=0 , dieroll=0;
 		while(position >=0 && position <100)
 		{
-			first_player=(int)Math.floor((Math.random() * 6) + 1);
+			dice=(int)Math.floor((Math.random() * 6) + 1);
+
 			dieroll++;
-			position+=first_player;
+			position+=dice;
 			int die_roll=(int)Math.floor(Math.random() * 10 ) % 3;
 			switch (die_roll){
 				case no_play:
 					position=position;
 					break;
 				case ladder:
-					position+=first_player;
+					position+=dice;
 					break;
 				case snake:
-					position-=first_player;
+					position-=dice;
 					break;
 			}
-			System.out.println(position);
 			if(position>100)
 			{
 				position-=position;
 			}
-			System.out.println("For "+dieroll+" roll value is: "+position);
 		}
-		System.out.println("Total number of times the dice is rolled for a win is: "+dieroll);
-		System.out.println("Winning position is reached by the user: "+position);
-		System.out.println("The player is won: "+position);
+		return dieroll;
+	}
+	public static void main(String[] args)
+	{
+      System.out.println("Welcome to snake ladder problem");
+		snake fp=new snake();
+		int first=fp.dice_roll();
+		System.out.println("Total number of times the dice rolled by first player for a win is: "+first);
 
+		snake sp=new snake();
+		int second=sp.dice_roll();
+		System.out.println("Total number of times the dice is rolled by second player for a win is: "+second);
+		if(first<second)
+		{
+			System.out.println("First player is the winner");
+		}
+		else if(second<first)
+		{
+			System.out.println("Second player is the winner");
+		}
+		else if(first==second)
+		{
+			System.out.println("It is a tie");
+		}
 	}
 }
 
