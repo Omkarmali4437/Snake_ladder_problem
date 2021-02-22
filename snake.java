@@ -31,6 +31,7 @@ public class linecomparison {
 				System.out.println(position);
 			}
 		}
+		System.out.println("Winning position is reached by the user: "+position);
 		System.out.println("The player is won: "+position);
 
 	}
