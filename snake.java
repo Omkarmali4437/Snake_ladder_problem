@@ -1,8 +1,29 @@
 public class linecomparison {
-	 public static void main(String[] args){
+	public static final int no_play=0, ladder=1, snake=2;
+	public static void main(String[] args){
 		System.out.println("Welcome to snake ladder problem");
-		int first_player , start_point=0;
+
+		//Variables
+		int first_player , start_point=0 , position=0;
+
 		first_player=(int)Math.floor((Math.random() * 6) + 1);
 		System.out.println(first_player);
+
+		for(int i=0; i<=100; i++)
+		{
+			int die_roll=(int)Math.floor(Math.random() * 10 ) % 3;
+			switch (die_roll){
+				case no_play:
+					position=position;
+					break;
+				case ladder:
+					position+=first_player;
+					break;
+				case snake:
+					position-=first_player;
+					break;
+			}
+		}
+		System.out.println(position);
 	}
 }
